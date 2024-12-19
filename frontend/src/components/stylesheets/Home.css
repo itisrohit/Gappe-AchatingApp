@@ -1,0 +1,5 @@
+.home{
+    height: calc(100vh - 100px);
+    overflow: hidden;
+    filter: blur(2px);
+}
