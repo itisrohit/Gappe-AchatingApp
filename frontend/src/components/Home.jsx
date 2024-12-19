@@ -1,11 +1,15 @@
 import React from 'react';
-import UnderConstruction from '../assets/Images/UnderConstruction.jpg';
 import './stylesheets/Home.css';
+import Sidebar from './Sidebar';
+import OtherUsers from './OtherUsers';
+import MessageContainer from './MessageContainer';
 
 const Home = () => {
   return (
     <div className="home">
-      <img src={UnderConstruction} alt="Under Construction" />
+      <Sidebar />
+      <OtherUsers />
+      <MessageContainer />
     </div>
   );
 }

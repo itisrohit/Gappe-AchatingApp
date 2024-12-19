@@ -1,0 +1,12 @@
+.message-container{
+    /* border: 2px solid red; */
+    width: calc(100vw - 29em);
+    background-color: rgb(19, 19, 21);
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+#navbar-message-containe{
+    border-bottom: 1.5px solid rgb(71, 71, 63);
+    height: 75px;
+}

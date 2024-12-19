@@ -1,0 +1,48 @@
+.other-us{
+    /* border: 2px solid red; */
+    height: 5em;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+.other-us.activeid{
+    background-color: rgb(32, 32, 36);
+}
+.other-us:hover{
+    background-color: rgb(32, 32, 36);
+}
+.user-content{
+    /* border: 1px solid hotpink; */
+    width: 90%;
+    display: flex;
+    align-items: center;
+}
+.userlogo{
+    /* border: 2px solid red; */
+    position: relative;
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+}
+.userlogo img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.userlogo.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0.8em;
+    height: 0.8em;
+    background-color: green; 
+    border: 2px solid white;
+    border-radius: 50%;
+}
+.userName{
+    /* border: 2px solid hotpink; */
+    font-family: 'Roboto', sans-serif;
+    margin-left: 1em;
+    font-size: 1.1em;
+}

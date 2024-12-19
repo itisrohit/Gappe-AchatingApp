@@ -21,7 +21,7 @@ const sendMessage = async (req, res) => {
         if(newMessage){
             gotConversation.messages.push(newMessage._id);
             await gotConversation.save();
-            return res.status(200).json({message: "Message sent successfully!"});
+            return res.status(200).json({newMessage});
         }
     }catch(err){
         console.log("The issue is: ",err);
@@ -35,9 +35,8 @@ const getMessages = async (req, res) => {
         const conversation = await Conversation.findOne({
             participants: {$all: [senderId, receiverId]}
         }).populate("messages");
-        if(conversation){
-            return res.status(200).json({messages: conversation.messages});
-        }
+        return res.status(200).json(conversation?.messages);
+        
 
     }catch(err){
         console.log("The issue is: ",err);

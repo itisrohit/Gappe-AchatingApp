@@ -31,7 +31,7 @@ const createUser = async (req, res) => {
             profilePicture: gender === "Male" ? profilePicture.male : gender === "Female"? profilePicture.female : profilePicture.others,
             gender
         });
-        return res.status(201).json({msg: "Account created successfully."});
+        return res.status(201).json({msg: "Account created successfully.", success: true});
     }catch(err){
         console.log("The issue is: ",err);
     }
@@ -56,7 +56,14 @@ const loginUser = async (req, res) => {
         };
         const token = jwt.sign(tokedata, process.env.JWT_SECRET, {expiresIn: "3d"});
         return res.status(200).cookie("token", token, {maxAge : 3*24*60*60*1000, httpOnly: true, sameSite: 'strict'})
-        .json({msg: "Login Successful.", success: true});
+        .json({msg: "Login Successful.", success: true,
+            user: {
+                _id: user._id,
+                fullName: user.fullName,
+                userName: user.userName,
+                profilePicture: user.profilePicture
+            }
+        });
 
 
     }catch(err){
@@ -65,6 +72,16 @@ const loginUser = async (req, res) => {
     }
 }
 
+const getOtherUser = async (req, res) => {
+    try{
+        const LoggedInUserId = req.userId;
+        const otherUsers = await User.find({ _id: { $ne: LoggedInUserId } }).select("-password");
+        return res.status(200).json(otherUsers);
+
+    }catch(err){
+        console.log("The issue is: ",err);
+    }
+};
 const logoutUser =  (req, res) => {
     try{
         return res.status(200).clearCookie("token", {maxAge: 0}).json({msg: "Logged out successfully."});
@@ -76,4 +93,4 @@ const logoutUser =  (req, res) => {
 
 
 
-module.exports = { createUser, loginUser, logoutUser };
+module.exports = { createUser, loginUser, getOtherUser ,logoutUser };

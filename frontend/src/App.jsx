@@ -1,14 +1,12 @@
 import './App.css'
 import Home from './components/Home'
 import Login from './components/Login'
-import Navigation from './components/Navigation'
 import Registration from './components/Registration'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 const router = createBrowserRouter([
   {path: '/', element: 
   <>
-  <Navigation />
   <Home />
   </>
   },

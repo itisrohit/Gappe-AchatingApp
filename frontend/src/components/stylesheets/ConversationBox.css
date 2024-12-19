@@ -1,0 +1,5 @@
+.conversation-box{
+    /* border: 2px solid red; */
+    overflow-y: auto;
+    height: 80%;
+}

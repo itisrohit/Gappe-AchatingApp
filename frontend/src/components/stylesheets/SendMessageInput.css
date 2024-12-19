@@ -1,0 +1,24 @@
+.sendMessageInput{
+    /* border: 2px solid #f1f1f1; */
+    background-color: rgb(19, 19, 21);
+    height: calc(100vh - 80% - 75px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sendMessageBar{
+    border: 1px solid rgb(71, 71, 63);
+    width: 98%;
+    height: 55%;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+}
+.sendMessageBar input{
+    background-color: rgb(19, 19, 21);
+    color: white;
+    width: 95%;
+    border: none;
+    outline: none;
+    caret-color: white;
+}

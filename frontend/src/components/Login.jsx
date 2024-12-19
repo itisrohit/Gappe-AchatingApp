@@ -1,8 +1,40 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import './stylesheets/Login.css'
+import axios from 'axios';
+import toast from 'react-hot-toast';
+import { setAuth } from '../redux//user-slice';
+import { useDispatch } from 'react-redux';
 
 const Login = () => {
+    const [userInfo, setuserInfo] = useState({
+        userName: '',
+        password: ''
+    })
+    const navigate = useNavigate();
+    const dispatch = useDispatch()
+    const onSumbitHandler =async (e)=>{
+        e.preventDefault();
+        try{
+            const res = await axios.post('http://localhost:8080/api/user/login', userInfo, {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                withCredentials: true
+            });
+            navigate('/');
+            toast.success(res.data.msg);
+            dispatch(setAuth(res.data.user));
+            setuserInfo({
+                userName: '',
+                password: ''
+            });
+                
+        }catch(err){
+            toast.error(err.response.data.msg);
+            console.log(err);
+        }
+    };
   return (
     <div className="login">
         <div className="container">
@@ -11,9 +43,15 @@ const Login = () => {
             </div>
             <div className="content-part">
                 <div className="registration-form">
-                    <form action="/login" method='post'>
-                        <input type="text" name="userName" id="userName" placeholder='Enter Username' />
-                        <input type="password" name='password' id='password' placeholder='Enter Password' />
+                    <form action="" onSubmit={onSumbitHandler}>
+                        <input type="text" name="userName" id="userName" placeholder='Enter Username' 
+                        value={userInfo.userName}
+                        onChange={(e)=>setuserInfo({...userInfo, userName: e.target.value})}
+                        />
+                        <input type="password" name='password' id='password' placeholder='Enter Password'
+                        value={userInfo.password} 
+                        onChange={(e)=>setuserInfo({...userInfo, password: e.target.value})}
+                        />
                         <button type="submit">Login in</button>
                     </form>
                 </div>

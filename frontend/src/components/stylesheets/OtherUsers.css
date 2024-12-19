@@ -1,0 +1,10 @@
+.other-users {
+    /* border: 2px solid red; */
+    width: 22em;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(19, 19, 21);
+    color: white;
+    overflow-y: auto;
+    border-right: 1.5px solid rgb(71, 71, 63);
+}
