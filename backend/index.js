@@ -20,7 +20,10 @@ app.get("/test", (req, res) => {
     res.send("Welcome to my site");
 });
 
-
+app.get("/", (req, res) => {
+    res.send("Hello World");
+    console.log("Yup this one is working");
+});
 
 // routes
 app.use('/api/user', require('./routes/users.routes'));
