@@ -16,7 +16,7 @@ const Registration = () => {
     const onSumbitHandler = async (e)=>{
         e.preventDefault();
         try{
-            const res = await axios.post('http://localhost:8080/api/user/register', userInfo, {
+            const res = await axios.post('https://gappe-proto.onrender.com/api/user/register', userInfo, {
                 headers: {
                     'Content-Type': 'application/json'
                 },

@@ -10,7 +10,7 @@ const useGetOtherUsers = () => {
         const fetchOtherUsers = async () => {
             try {
                 axios.defaults.withCredentials = true;
-                const res = await axios.get('http://localhost:8080/api/user/');
+                const res = await axios.get('https://gappe-proto.onrender.com/api/user/');
                 //store
                 dispatch(setOtherUsers(res.data));
             } catch (err) {

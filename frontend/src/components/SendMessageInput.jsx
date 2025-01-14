@@ -13,7 +13,7 @@ const SendMessageInput = () => {
     if (e.key === 'Enter') {
       e.preventDefault();
       try{
-        const res = await axios.post(`http://localhost:8080/api/message/send/${selectedUser?._id}`, {message}, {
+        const res = await axios.post(`https://gappe-proto.onrender.com/api/message/send/${selectedUser?._id}`, {message}, {
           headers:{
             "Content-Type": "application/json"
           },

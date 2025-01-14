@@ -13,7 +13,7 @@ const Sidebar = () => {
   const location = useLocation();
   const logoutHandler = async () => {
       try{
-          const res = await axios.get('http://localhost:8080/api/user/logout');
+          const res = await axios.get('https://gappe-proto.onrender.com/api/user/logout');
           navigate('/signin');
           toast.success(res.data.msg);
       }catch(err){  

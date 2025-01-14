@@ -10,7 +10,7 @@ const useGetMesages = () => {
     const fetchMessages = async () => {
         try{
             axios.defaults.withCredentials = true;
-            const res = await axios.get(`http://localhost:8080/api/message/${selectedUser?._id}`);
+            const res = await axios.get(`https://gappe-proto.onrender.com/api/message/${selectedUser?._id}`);
             // console.log(res.data);
             dispatch(setMessages(res.data));
         }catch(err){

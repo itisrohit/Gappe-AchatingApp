@@ -16,7 +16,7 @@ const Login = () => {
     const onSumbitHandler =async (e)=>{
         e.preventDefault();
         try{
-            const res = await axios.post('http://localhost:8080/api/user/login', userInfo, {
+            const res = await axios.post('https://gappe-proto.onrender.com/api/user/login', userInfo, {
                 headers: {
                     'Content-Type': 'application/json'
                 },
