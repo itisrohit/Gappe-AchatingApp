@@ -16,7 +16,9 @@ app.use(cors(corsoptions));
 
 const PORT = process.env.PORT ||8080;
 
-
+app.get("/test", (req, res) => {
+    res.send("Welcome to my site");
+});
 
 
 
